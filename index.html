@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<link>
+<meta charset="UTF-8">
+<title>Train Scheduler</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree|Racing+Sans+One" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+  crossorigin="anonymous">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center"><span class="fas fa-train"></span>TRAIN EXPRESS</h1>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+          <h4>Current Time Schedule</h4>
+      </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Train Name</th>
+              <th scope="col">Destination</th>
+              <th scope="col">Frequency (min)</th>
+              <th scope="col">Next Arrival</th>
+              <th scope="col">Minutes Away</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+    </div>
+
+    <br>
+
+    <div class="card">
+      <div class="card-header">
+        <h4>Add Train</h4>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleTrainName">Train Name</label>
+            <input type="text" class="form-control" id="exampleTrainName" placeholder="Enter train name">
+          </div>
+          <div class="form-group">
+            <label for="exampleDestination">Destination</label>
+            <input type="text" class="form-control" id="exampleDestination" placeholder="Enter Destination">
+          </div>
+          <div class="form-group">
+            <label for="exampleFirstTrainTime">First Train Time (HH:mm - military time)</label>
+            <input type="text" class="form-control" id="exampleFirstTrainTime" placeholder="First Train Time">
+          </div>
+          <div class="form-group">
+            <label for="exampleFrequency">Frequency (min)</label>
+            <input type="text" class="form-control" id="exampleFrequency" placeholder="Frequency">
+          </div>
+          <button id="button" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../moment.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

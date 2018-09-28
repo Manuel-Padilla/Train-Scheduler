@@ -1,0 +1,71 @@
+body {
+  background: url(../images/train_station2.jpg);
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+.jumbotron {
+  background-color: #fff;
+  box-shadow: 0px 3px 11px;
+}
+
+span {
+  height: 50%;
+}
+
+h1 {
+  font-size: 6rem;
+  font-family: 'Racing Sans One', cursive;
+  color: #a64f4f;
+}
+
+.card-header {
+  background-color: #a64f4f;
+}
+
+h4 {
+  color: #fff;
+  margin: 0px;
+}
+
+
+/* media queries */
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+  h1 {
+    font-size: 2rem;
+    } 
+ }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+  h1 {
+    font-size: 3rem;
+    } 
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) { 
+  h1 {
+  font-size: 5rem;
+  } 
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  h1 {
+    font-size: 6rem;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 6rem;
+    }
+}
