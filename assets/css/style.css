@@ -6,15 +6,13 @@ body {
   background-position: center;
   background-attachment: fixed;
   font-family: 'Bai Jamjuree', sans-serif;
+  font-size: 14px;
 }
 
 .jumbotron {
   background-color: #fff;
   box-shadow: 0px 3px 11px;
-}
-
-span {
-  height: 50%;
+  margin: 20px 0;
 }
 
 h1 {
@@ -23,8 +21,20 @@ h1 {
   color: #a64f4f;
 }
 
+.card {
+  box-shadow: 0px 3px 11px;
+}
+
 .card-header {
   background-color: #a64f4f;
+}
+
+.card-body {
+  font-size: 1rem;
+}
+
+.table th {
+  padding: .75rem 0 0 0;
 }
 
 h4 {

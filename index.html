@@ -25,6 +25,7 @@
       <div class="card-header">
           <h4>Current Time Schedule</h4>
       </div>
+      <div class="container text-center">
         <table class="table">
           <thead>
             <tr>
@@ -39,6 +40,7 @@
 
           </tbody>
         </table>
+      </div>
     </div>
 
     <br>
@@ -51,21 +53,21 @@
         <form>
           <div class="form-group">
             <label for="exampleTrainName">Train Name</label>
-            <input type="text" class="form-control" id="exampleTrainName" placeholder="Enter train name">
+            <input type="text" class="form-control" id="train-name-input" id="exampleTrainName" placeholder="Enter train name">
           </div>
           <div class="form-group">
             <label for="exampleDestination">Destination</label>
-            <input type="text" class="form-control" id="exampleDestination" placeholder="Enter Destination">
+            <input type="text" class="form-control" id="destination-input" id="exampleDestination" placeholder="Enter Destination">
           </div>
           <div class="form-group">
             <label for="exampleFirstTrainTime">First Train Time (HH:mm - military time)</label>
-            <input type="text" class="form-control" id="exampleFirstTrainTime" placeholder="First Train Time">
+            <input type="text" class="form-control" id="first-train-input" id="exampleFirstTrainTime" placeholder="First Train Time">
           </div>
           <div class="form-group">
             <label for="exampleFrequency">Frequency (min)</label>
-            <input type="text" class="form-control" id="exampleFrequency" placeholder="Frequency">
+            <input type="text" class="form-control" id="frequency-input" id="exampleFrequency" placeholder="Frequency">
           </div>
-          <button id="button" type="submit" class="btn btn-primary">Submit</button>
+          <button id="train-submit" type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
@@ -73,7 +75,9 @@
   </div>
 
   <script src="../moment.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="assets/javascript/app.js"></script>
 
 </body>
 
