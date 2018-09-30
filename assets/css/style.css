@@ -6,19 +6,25 @@ body {
   background-position: center;
   background-attachment: fixed;
   font-family: 'Bai Jamjuree', sans-serif;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .jumbotron {
   background-color: #fff;
   box-shadow: 0px 3px 11px;
   margin: 20px 0;
+  padding: 30px 30px;
 }
 
 h1 {
   font-size: 6rem;
   font-family: 'Racing Sans One', cursive;
   color: #a64f4f;
+  text-decoration: underline;
+}
+
+#current-time {
+  font-size: 16px;
 }
 
 .card {
@@ -37,7 +43,7 @@ h1 {
   padding: .75rem 0 0 0;
 }
 
-h4 {
+h5 {
   color: #fff;
   margin: 0px;
 }
@@ -50,12 +56,18 @@ h4 {
   h1 {
     font-size: 2rem;
     } 
+  body {
+    font-size: 12px;
+  }
  }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) { 
   h1 {
     font-size: 3rem;
+    }
+  body {
+    font-size: 14px;
     } 
  }
 

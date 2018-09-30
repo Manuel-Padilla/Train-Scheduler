@@ -1,78 +1,72 @@
-// $(document).ready(function() {
-  
-  // Initialize Firebase
+$(document).ready(function () {
   var config = {
-    apiKey: "AIzaSyBzRAjjW0qDVWy7CzlS6bLBOUpvPwpMAkA",
-    authDomain: "myapp-bab43.firebaseapp.com",
-    databaseURL: "https://myapp-bab43.firebaseio.com",
-    projectId: "myapp-bab43",
-    storageBucket: "myapp-bab43.appspot.com",
-    messagingSenderId: "710107190678"
+    apiKey: "AIzaSyCNkTVGyuaZoFNJRQsqHNZTjuGYheuX8UI",
+    authDomain: "train-schedule-c38c9.firebaseapp.com",
+    databaseURL: "https://train-schedule-c38c9.firebaseio.com",
+    projectId: "train-schedule-c38c9",
+    storageBucket: "train-schedule-c38c9.appspot.com",
+    messagingSenderId: "315301794938"
   };
   firebase.initializeApp(config);
-  
-  // a var to represent the database
+
+  // A variable to reference the database.
   var database = firebase.database();
 
-  // Initial Values
-  // var trainName = "";
-  // var destination = "";
-  // var firstTrainTime = "";
-  // var frequency = "";
+  // set current time
+  var myTimer = setInterval(myTimer, 1000);
 
-  // Capture Button Click
-    $("#train-submit").on("click", function(){
-      event.preventDefault();
+  function myTimer() {
+    var currentTime = new Date();
+    $("#current-time").text(currentTime.toLocaleTimeString());
+  }
 
-      var trainName = $("#train-name-input").val().trim();
-      var destination = $("#destination-input").val().trim();
-      var firstTrainTime = $("#first-train-input").val().trim();
-      var frequency = $("#frequency-input").val().trim();
+  // Variables for the onClick event
+  var name;
+  var destination;
+  var firstTrain;
+  var frequency = 0;
 
-      console.log(trainName);
-      console.log(destination);
-      console.log(firstTrainTime);
-      console.log(frequency);
+  $("#add-train").on("click", function () {
+    event.preventDefault();
+    // Storing and retreiving new train data
+    name = $("#train-name").val().trim();
+    destination = $("#destination").val().trim();
+    firstTrain = $("#first-train").val().trim();
+    frequency = $("#frequency").val().trim();
 
-    var trainData = {
-        trainName: trainName,
-        destination: destination,
-        firstTrainTime: firstTrainTime,
-        frequency: frequency
-      }
-
-      database.ref().push(trainData)
-
-    $("#train-name-input").val("");
-    $("#destination-input").val("");
-    $("#first-train-input").val("");
-    $("#frequency-input").val("");
-
-    moment(firstTrainTime, "h:mm:ss A").format("HH:mm:ss");
-
-    var militaryTime = moment(firstTrainTime, "h:mm:ss A").format("HH:mm:ss");
-
-    // moment(frequency).format("minutes");
-
-    var inMinutes = moment(frequency).format("minutes");
-    
-
-    console.log(militaryTime);
-    console.log(inMinutes);
-
+    // Pushing to database
+    database.ref().push({
+      name: name,
+      destination: destination,
+      firstTrain: firstTrain,
+      frequency: frequency,
+      dateAdded: firebase.database.ServerValue.TIMESTAMP
+    });
+    $("form")[0].reset();
   });
 
-  
+  database.ref().on("child_added", function (childSnapshot) {
+    
+    // Change year so first train comes before now
+    var firstTrainNew = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
+    // Difference between the current and firstTrain
+    var diffTime = moment().diff(moment(firstTrainNew), "minutes");
+    var remainder = diffTime % childSnapshot.val().frequency;
+    // Minutes until next train
+    var minAway = childSnapshot.val().frequency - remainder;
+    // Next train time
+    var nextTrain = moment().add(minAway, "minutes");
+    nextTrain = moment(nextTrain).format("hh:mm");
 
+    $("#train-schedule").append("<tr><td>" + childSnapshot.val().name +
+      "</td><td>" + childSnapshot.val().destination +
+      "</td><td>" + childSnapshot.val().frequency +
+      "</td><td>" + nextTrain +
+      "</td><td>" + minAway + "</td></tr>");
 
+    // Handle the errors
+  }, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
 
-
-
-
-
-
-
-
-
-
-// });
+});
